@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mmall.dao.SysLogMapper">
+  <resultMap id="BaseResultMap" type="com.mmall.model.SysLog">
+    <!--@mbg.generated-->
+    <!--@Table sys_log-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="TYPE" jdbcType="INTEGER" property="type" />
+    <result column="TARGET_ID" jdbcType="INTEGER" property="targetId" />
+    <result column="OLD_VALUE" jdbcType="LONGVARCHAR" property="oldValue" />
+    <result column="NEW_VALUE" jdbcType="LONGVARCHAR" property="newValue" />
+    <result column="OPERATOR" jdbcType="VARCHAR" property="operator" />
+    <result column="OPERATE_TIME" jdbcType="TIMESTAMP" property="operateTime" />
+    <result column="OPERATE_IP" jdbcType="VARCHAR" property="operateIp" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, `TYPE`, TARGET_ID, OLD_VALUE, NEW_VALUE, `OPERATOR`, OPERATE_TIME, OPERATE_IP, 
+    `STATUS`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sys_log
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from sys_log
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.mmall.model.SysLog">
+    <!--@mbg.generated-->
+    insert into sys_log (ID, `TYPE`, TARGET_ID, 
+      OLD_VALUE, NEW_VALUE, `OPERATOR`, 
+      OPERATE_TIME, OPERATE_IP, `STATUS`
+      )
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{targetId,jdbcType=INTEGER}, 
+      #{oldValue,jdbcType=LONGVARCHAR}, #{newValue,jdbcType=LONGVARCHAR}, #{operator,jdbcType=VARCHAR}, 
+      #{operateTime,jdbcType=TIMESTAMP}, #{operateIp,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.mmall.model.SysLog">
+    <!--@mbg.generated-->
+    insert into sys_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="type != null">
+        `TYPE`,
+      </if>
+      <if test="targetId != null">
+        TARGET_ID,
+      </if>
+      <if test="oldValue != null">
+        OLD_VALUE,
+      </if>
+      <if test="newValue != null">
+        NEW_VALUE,
+      </if>
+      <if test="operator != null">
+        `OPERATOR`,
+      </if>
+      <if test="operateTime != null">
+        OPERATE_TIME,
+      </if>
+      <if test="operateIp != null">
+        OPERATE_IP,
+      </if>
+      <if test="status != null">
+        `STATUS`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="targetId != null">
+        #{targetId,jdbcType=INTEGER},
+      </if>
+      <if test="oldValue != null">
+        #{oldValue,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="newValue != null">
+        #{newValue,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operateTime != null">
+        #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateIp != null">
+        #{operateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mmall.model.SysLog">
+    <!--@mbg.generated-->
+    update sys_log
+    <set>
+      <if test="type != null">
+        `TYPE` = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="targetId != null">
+        TARGET_ID = #{targetId,jdbcType=INTEGER},
+      </if>
+      <if test="oldValue != null">
+        OLD_VALUE = #{oldValue,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="newValue != null">
+        NEW_VALUE = #{newValue,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="operator != null">
+        `OPERATOR` = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="operateTime != null">
+        OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateIp != null">
+        OPERATE_IP = #{operateIp,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `STATUS` = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mmall.model.SysLog">
+    <!--@mbg.generated-->
+    update sys_log
+    set `TYPE` = #{type,jdbcType=INTEGER},
+      TARGET_ID = #{targetId,jdbcType=INTEGER},
+      OLD_VALUE = #{oldValue,jdbcType=LONGVARCHAR},
+      NEW_VALUE = #{newValue,jdbcType=LONGVARCHAR},
+      `OPERATOR` = #{operator,jdbcType=VARCHAR},
+      OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+      OPERATE_IP = #{operateIp,jdbcType=VARCHAR},
+      `STATUS` = #{status,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
